@@ -1,27 +1,8 @@
+#include "config.h"
 #include "DHT.h"
 #include "ESP8266WiFi.h"
 #include "InfluxDb.h"
 #include "NewPing.h"
-
-#define DEBUG             false 
-
-// Influx Config
-#define INFLUXDB_HOST     "influxdb.hubspace.de"
-#define INFLUXDB_PORT     "8086"
-#define INFLUXDB_DATABASE "lasse"
-#define INFLUXDB_USER     "lasse"
-#define INFLUXDB_PASS     "Vuson:Ibihi284"
-
-// WIFI Config
-#define WIFISSID          "maeusekaefig"
-#define WIFIPSK           "386L8P99L668F8HE"
-
-// HW Config
-#define TRIGGER D1
-#define ECHO D2
-#define MAX_DIST 300
-#define DHTPIN D4
-#define DHTTYPE DHT22
 
 // global declarations
 DHT dht22(DHTPIN, DHTTYPE);
@@ -70,7 +51,7 @@ void setup() {
   // deep sleep to save power
   if (DEBUG) { Serial.println("don't sleep for 30m"); }
   if (DEBUG == false) {
-    ESP.deepSleep(18e8);
+    ESP.deepSleep(CYCLETIME);
   }
   delay(100);
 }
@@ -89,7 +70,7 @@ void loop() {
     Serial.print(" | Voltage: ");
     Serial.println(takeVoltage());
     Serial.println("--------------------");
-    delay(10000);
+    delay(3000);
   }
 }
 

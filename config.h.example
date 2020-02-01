@@ -1,0 +1,20 @@
+#define DEBUG             false
+#define CYCLETIME         60e6 // in microseconds         
+
+// Influx Config
+#define INFLUXDB_HOST     "db.example.com"
+#define INFLUXDB_PORT     "8086"
+#define INFLUXDB_DATABASE "cistern"
+#define INFLUXDB_USER     "user"
+#define INFLUXDB_PASS     "password"
+
+// WIFI Config
+#define WIFISSID          "mywifi"
+#define WIFIPSK           "wifipsk"
+
+// HW Config
+#define TRIGGER D1
+#define ECHO D2
+#define MAX_DIST 300
+#define DHTPIN D3
+#define DHTTYPE DHT22
